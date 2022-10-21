@@ -65,3 +65,16 @@ def check_save_data():
         if data != '-1':
             return True
 
+
+def load_defaults():
+    with open('game_defaults.csv') as file:
+        data = []
+
+        for line in file:
+            line = line.strip()
+            line = line.split(",")
+            data.append(line)
+
+        print(f"DEBUG: {type(data)}")
+
+    return data[0], data[1]
