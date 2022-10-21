@@ -1,7 +1,7 @@
 from validators import valid_coords, is_hit, is_win
 from time import sleep
 from generators import display_grid
-from file_handlers import save_game
+from file_handlers import save_game, clear_save_data
 
 
 def play_loop(p1_boats, p1_attack, p2_boats, p2_attack, rounds, boat_sizes):
@@ -31,6 +31,7 @@ def play_loop(p1_boats, p1_attack, p2_boats, p2_attack, rounds, boat_sizes):
         if win:
             replay = False
             print(f"Player {current_player} is the winner!")
+            clear_save_data()
 
 
 def player(rounds):
