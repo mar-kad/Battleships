@@ -7,7 +7,7 @@ def set_boats(grid, boat_sizes):
 
         # set valid as flag for checking valid position for boat placement
         valid = False
-        while valid == False:
+        while not valid:
             # initialise lists
             state = []  # holds current state of location
             pos = []  # holds to coords put in by the user
@@ -23,7 +23,7 @@ def set_boats(grid, boat_sizes):
                 x, y = valid_coords()
                 # append the current state of that location to our state list
                 state.append(grid[x * 10 + y])
-                # append the location itselfs to the pos list
+                # append the location itself to the pos list
                 pos.append(x * 10 + y)
 
             for i in boat_sizes:
