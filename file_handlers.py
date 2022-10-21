@@ -62,6 +62,6 @@ def clear_save_data():
 def check_save_data():
     with open('saves/game_save.csv', 'r') as file:
         data = file.readline()
-        if int(data) != -1:
+        if data != '-1':
             return True
 
