@@ -75,6 +75,4 @@ def load_defaults():
             line = line.split(",")
             data.append(line)
 
-        print(f"DEBUG: {type(data)}")
-
     return data[0], data[1]

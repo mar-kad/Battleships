@@ -11,8 +11,7 @@ def title():
     print("╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝")
 
 
-def how_to_play():
-    default_boats = ["5: Carrier", "4: Battleship", "3: Cruiser x 2", "2: Submarine"]
+def how_to_play(sizes, name):
 
     print("\nWelcome to Battleboats!\n")
     display_grid(generate_grid())
@@ -21,8 +20,8 @@ def how_to_play():
         f"turns typing out row and column coordinates on the other player's grid in an attempt to identify a location "
         f"that contains a ship.\n")
     print("Each player receives a game board and five ships of varying sizes.  The five ships are: ")
-    for i in default_boats:
-        print(i)
+    for i in range(len(sizes)):
+        print(f"{sizes[i]}: {name[i]}")
 
 
 def menu():

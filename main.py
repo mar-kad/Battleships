@@ -7,7 +7,7 @@ from file_handlers import load_defaults, load_game, check_save_data
 rounds = 0
 boat_sizes, boat_names = load_defaults()
 title()
-how_to_play()
+how_to_play(boat_sizes, boat_names)
 while True:
     choice = menu()
 
