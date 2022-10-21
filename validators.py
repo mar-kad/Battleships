@@ -1,13 +1,13 @@
 def valid_coords():
-    valid_coords = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    valid_xy = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     valid_input = False
 
-    while valid_input == False:
+    while not valid_input:
 
         x_coord = input("Enter X coord: ")
         y_coord = input("Enter Y coord: ")
         # check if the player input is NOT in our valid list. If TRUE, ask for another input
-        if x_coord in valid_coords or y_coord in valid_coords:
+        if x_coord in valid_xy or y_coord in valid_xy:
             valid_input = True
         else:
             print("Not valid")
@@ -53,9 +53,9 @@ def is_hit(boats, attack_map, x, y):
 def is_win(boat_types, grid):
     win = True
 
-    for type in boat_types:
+    for boat in boat_types:
         for j in grid:
-            if j == type:
+            if j == boat:
                 win = False
     return win
 
