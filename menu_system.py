@@ -26,11 +26,11 @@ def how_to_play():
 
 
 def menu():
-    options = ["New Game", "Load Game", "Quit", "Save test"]
+    options = ["New Game", "Load Game", "Quit"]
 
     print("\nChoose from the following options\n--------")
 
     for i in range(len(options)):
         print(f"{i + 1}: {options[i]}")
 
-    return valid_int("\nEnter Selection: ", [1, 2, 3, 4])
+    return valid_int("\nEnter Selection: ", [1, 2, 3])

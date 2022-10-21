@@ -30,11 +30,3 @@ while True:
 
     elif choice == 3:
         quit()
-
-    elif choice == 4:
-        p1_boats = set_boats(generate_grid(), boat_sizes)
-        p1_attack = generate_grid()
-
-        p2_boats = set_boats(generate_grid(), boat_sizes)
-        p2_attack = generate_grid()
-        save_game(p1_boats, p1_attack, p2_boats, p2_attack, boat_sizes, rounds)
