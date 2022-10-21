@@ -39,12 +39,12 @@ def is_hit(boats, attack_map, x, y):
     hit = False
     options = ['X', 'O', '~']
     if boats[x * 10 + y] not in options:
-        print(f"HIT at {x * 10 + y}: {attack_map[x * 10 + y]}")
+        print(f"HIT at {x * 10 + y}: {boats[x * 10 + y]}")
         hit = True
         attack_map[x * 10 + y] = 'X'
         boats[x * 10 + y] = 'X'
     else:
-        print(f"MISS at {x * 10 + y}: {attack_map[x * 10 + y]}")
+        print(f"MISS at {x * 10 + y}: {boats[x * 10 + y]}")
         attack_map[x * 10 + y] = 'O'
         boats[x * 10 + y] = 'O'
     return hit
