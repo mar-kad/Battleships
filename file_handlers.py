@@ -52,3 +52,16 @@ def load_game():
         print(f"DEBUG: {type(rounds)}")
 
     return data[0], data[1], data[2], data[3], data[4], rounds
+
+
+def clear_save_data():
+    with open('saves/game_save.csv', 'w') as file:
+        file.write('-1')
+
+
+def check_save_data():
+    with open('saves/game_save.csv', 'r') as file:
+        data = file.readline()
+        if int(data) != -1:
+            return True
+
