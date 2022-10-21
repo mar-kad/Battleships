@@ -42,7 +42,7 @@ def is_hit(boats, attack_map, x, y):
         print(f"HIT at {x * 10 + y}: {boats[x * 10 + y]}")
         hit = True
         attack_map[x * 10 + y] = 'X'
-        boats[x * 10 + y] = 'X'ga
+        boats[x * 10 + y] = 'X'
     else:
         print(f"MISS at {x * 10 + y}: {boats[x * 10 + y]}")
         attack_map[x * 10 + y] = 'O'
