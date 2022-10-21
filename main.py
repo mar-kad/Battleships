@@ -2,11 +2,10 @@ from generators import generate_grid
 from set_boats import set_boats
 from menu_system import title, menu, how_to_play
 from play_game import play_loop
-from file_handlers import save_game, load_game, check_save_data
+from file_handlers import load_defaults, load_game, check_save_data
 
 rounds = 0
-boat_sizes = [5, 4, 3, 3, 2]
-
+boat_sizes, boat_names = load_defaults()
 title()
 how_to_play()
 while True:
