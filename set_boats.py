@@ -17,7 +17,7 @@ def set_boats(grid, boat_sizes):
             print(f"Enter x, y coordinates of boat size {size}")
 
             # for each boat section in current boat size
-            for boat in range(size):
+            for boat in range(int(size)):
                 print(f"---\nBoat Placement: {boat + 1}/{size}")
                 # store the return values of valid_coords which will be our coords x, y
                 x, y = valid_coords()

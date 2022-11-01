@@ -36,6 +36,7 @@ def check_sequential(coords):
 
 
 def is_hit(boats, attack_map, x, y):
+    # TODO breakdown options so stop overwriting already hit boats
     hit = False
     options = ['X', 'O', '~']
     if boats[x * 10 + y] not in options:
@@ -55,7 +56,7 @@ def is_win(boat_types, grid):
 
     for boat in boat_types:
         for j in grid:
-            if j == boat:
+            if j == int(boat):
                 win = False
     return win
 
@@ -73,5 +74,3 @@ def valid_int(text, options):
                 print("Number must be within the options give")
         except ValueError:
             print("Error: Try again")
-
-
