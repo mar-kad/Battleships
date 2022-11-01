@@ -1,13 +1,7 @@
 from validators import valid_coords, is_hit, is_win
 from time import sleep
-from generators import display_grid
+from generators import display_grid, clear
 from file_handlers import save_game, clear_save_data
-from os import environ
-
-replit_env = False
-if "REPL_OWNER" in environ:
-    from replit import clear
-    replit_env = True
 
 
 def play_loop(p1_boats, p1_attack, p2_boats, p2_attack, rounds, boat_sizes):
@@ -25,25 +19,22 @@ def play_loop(p1_boats, p1_attack, p2_boats, p2_attack, rounds, boat_sizes):
             x, y = valid_coords()
             is_hit(p2_boats, p1_attack, x, y)
             win = is_win(boat_sizes, p2_boats)
-            if replit_env:
-                clear()
+            clear()
         elif current_player == 2:
             display_grid(p2_attack)
             x, y = valid_coords()
             is_hit(p1_boats, p2_attack, x, y)
             win = is_win(boat_sizes, p1_boats)
-            if replit_env:
-                clear()
+            clear()
 
         sleep(1.25)
 
         if win:
             replay = False
-            print(f"Player {current_player} is the winner!")
+            print(f"\nPlayer {current_player} is the winner!")
             sleep(2)
             clear_save_data()
-            if replit_env:
-                clear()
+            clear()
 
 
 def player(rounds):

@@ -1,16 +1,18 @@
 def valid_coords():
-    valid_xy = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    valid_xy = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     valid_input = False
 
     while not valid_input:
-
-        x_coord = input("Enter X coord: ")
-        y_coord = input("Enter Y coord: ")
-        # check if the player input is NOT in our valid list. If TRUE, ask for another input
-        if x_coord in valid_xy or y_coord in valid_xy:
-            valid_input = True
-        else:
-            print("Not valid")
+        try:
+            x_coord = int(input("Enter X coord: "))
+            y_coord = int(input("Enter Y coord: "))
+            # check if the player input is NOT in our valid list. If TRUE, ask for another input
+            if x_coord in valid_xy and y_coord in valid_xy:
+                valid_input = True
+            else:
+                print("Not valid")
+        except ValueError:
+            print("ERROR: Must be a number.")
 
     return int(x_coord), int(y_coord)
 
@@ -39,15 +41,15 @@ def is_hit(boats, attack_map, x, y):
     # TODO breakdown options so stop overwriting already hit boats
     hit = False
     options = ['X', 'O', '~']
-    if boats[x * 10 + y] not in options:
-        print(f"HIT at {x * 10 + y}: {boats[x * 10 + y]}")
+    if boats[y * 10 + x] not in options:
+        print(f"HIT at {y * 10 + x}: {boats[y * 10 + x]}")
         hit = True
-        attack_map[x * 10 + y] = 'X'
-        boats[x * 10 + y] = 'X'
+        attack_map[y * 10 + x] = 'X'
+        boats[y * 10 + x] = 'X'
     else:
-        print(f"MISS at {x * 10 + y}: {boats[x * 10 + y]}")
-        attack_map[x * 10 + y] = 'O'
-        boats[x * 10 + y] = 'O'
+        print(f"MISS at {y * 10 + x}: {boats[y * 10 + x]}")
+        attack_map[y * 10 + x] = 'O'
+        boats[y * 10 + x] = 'O'
     return hit
 
 
