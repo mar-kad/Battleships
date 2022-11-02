@@ -49,7 +49,6 @@ def load_game():
             data.append(line)
 
         rounds = int(data[5][0])
-        print(f"DEBUG: {type(rounds)}")
 
     return data[0], data[1], data[2], data[3], data[4], rounds
 

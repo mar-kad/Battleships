@@ -14,7 +14,7 @@ def valid_coords():
         except ValueError:
             print("ERROR: Must be a number.")
 
-    return int(x_coord), int(y_coord)
+    return x_coord, y_coord
 
 
 def check_sequential(coords):
@@ -37,42 +37,44 @@ def check_sequential(coords):
     return valid
 
 
-def is_hit(boats, attack_map, x, y):
+def is_hit(boats, attack_map, x, y, boat_names):
     # TODO breakdown options so stop overwriting already hit boats
-    hit = False
     options = ['X', 'O', '~']
     if boats[y * 10 + x] not in options:
-        print(f"HIT at {y * 10 + x}: {boats[y * 10 + x]}")
+        print(f"-------\nHIT at {x}/{y}: {boat_names[int(boats[y*10+x])]}: {boats[y * 10 + x]}")
         hit = True
         attack_map[y * 10 + x] = 'X'
         boats[y * 10 + x] = 'X'
     else:
-        print(f"MISS at {y * 10 + x}: {boats[y * 10 + x]}")
-        attack_map[y * 10 + x] = 'O'
-        boats[y * 10 + x] = 'O'
+        print(f"-------\nMISS at {x}/{y}: {boats[y * 10 + x]}")
+        hit = False
+    attack_map[y * 10 + x] = 'O'
+    boats[y * 10 + x] = 'O'
+
     return hit
 
 
 def is_win(boat_types, grid):
+    # check if a boat piece if in the list. if not, then win condition is met as all boats have been destroyed
     win = True
 
     for boat in boat_types:
         for j in grid:
-            if j == int(boat):
+            if j == boat:
                 win = False
     return win
 
 
 def valid_int(text, options):
+    # general valid int type check
     not_valid = True
 
     while not_valid:
         try:
             sel = input(text)
             if int(sel) in options:
-                # print(f"DEBUG: {int(sel) in options}")
                 return int(sel)
             else:
                 print("Number must be within the options give")
         except ValueError:
-            print("Error: Try again")
+            print("Error: Must be a number. Try again")

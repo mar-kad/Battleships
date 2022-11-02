@@ -4,6 +4,7 @@ import replit
 
 
 def generate_grid():
+    # generate and assign ~ to all elements in a new list
     return ["~" for i in range(100)]
 
 
@@ -23,7 +24,6 @@ def clear():
     # TODO fix...
     if "REPL_OWNER" in os.environ:
         replit.clear()
-
 
     '''elif os.name in ('nt', 'dos'):
         subprocess.call("cls")
