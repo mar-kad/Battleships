@@ -27,7 +27,7 @@ def how_to_play(sizes, name):
 def menu():
     options = ["New Game", "Load Game", "Quit"]
 
-    print("\nChoose from the following options\n\t--------")
+    print("\nChoose from the following options\n\t")
 
     for i in range(len(options)):
         print(f"\t{i + 1}: {options[i]}")
